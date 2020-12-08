@@ -1,0 +1,58 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "comedia",
+      "cacheConfig": {
+        "maxAge": "1d",
+        "maxSize": 5,
+        "strategy": "performance",
+        "timeout": "5s"
+      },
+      "urls": [
+        "/icanhazdadjoke.com/"
+      ],
+      "version": 1
+    },
+    {
+      "name": "gatitos",
+      "cacheConfig": {
+       "maxAge": "1d",
+       "maxSize": 5,
+       "strategy": "freshness",
+       "timeout": "5s" 
+      },
+      "urls": [
+        "/api.thecatapi.com/v1/images/search",
+        "/cdn2.thecatapi.com/images/**"
+      ],
+      "version": 1
+    }
+  ]
+}
